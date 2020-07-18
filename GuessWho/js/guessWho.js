@@ -49,7 +49,6 @@ function letsPlay() {
 					resetPick()
 					if(win == 6) {
 						final()
-						playSound()
 					}			
 				}else if(firstPick != secondPick) {
 					toggleClickEvents()
@@ -98,10 +97,20 @@ function letsPlay() {
 
 			function final() {
 				const background = document.getElementById('background')
-				const finalPic = document.getElementById('finalPic')
+				const playIt = document.getElementById('clickHere')
 
-				finalPic.src = `img/final/final.jpg`
+				playIt.addEventListener('click', function() {
+					showIt()
+				})
 				background.style.zIndex = '2'
+			}
+
+			function showIt() {
+				const playIt = document.getElementById('clickHere')
+				playIt.style.display = 'none'
+				const finalPic = document.getElementById('finalPic')
+				finalPic.src = `img/final/final.jpg`
+				playSound()
 			}
 		} 
 
